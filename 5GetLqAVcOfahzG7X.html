@@ -1,0 +1,475 @@
+<html><head><base href="https://cumbres-quilpue.websim.ai/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Organización Condominio Cumbres de Quilpué</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+        color: #333;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    h1 {
+        text-align: center;
+        color: #1a365d;
+        font-size: 2.5em;
+        margin-bottom: 30px;
+    }
+    #warning-circle {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: #e53e3e;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+    .tabs {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    .tab {
+        padding: 12px 24px;
+        background-color: #2c5282;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.1s;
+        font-size: 1em;
+        font-weight: 500;
+        border-radius: 4px;
+        margin: 0 5px;
+    }
+    .tab:hover {
+        background-color: #1a365d;
+        transform: translateY(-2px);
+    }
+    .tab.active {
+        background-color: #1a365d;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    .tab-content {
+        display: none;
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .tab-content.active {
+        display: block;
+    }
+    .task-list {
+        list-style-type: none;
+        padding: 0;
+    }
+    .task-list li {
+        margin-bottom: 15px;
+        padding: 15px;
+        background-color: #f0f4f8;
+        border-radius: 6px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .task-content {
+        margin-bottom: 10px;
+    }
+    .task-dates {
+        font-size: 0.9em;
+        color: #4a5568;
+    }
+    .task-dates span {
+        display: block;
+        margin-bottom: 2px;
+    }
+    .task-delay {
+        font-weight: bold;
+    }
+    .date-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    .date-item {
+        background-color: #2c5282;
+        color: #fff;
+        padding: 20px;
+        border-radius: 6px;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: transform 0.3s;
+        cursor: pointer;
+    }
+    .date-item:hover {
+        transform: translateY(-5px);
+    }
+    .date-item h3 {
+        margin-top: 0;
+        font-size: 1.2em;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Organización Condominio Cumbres de Quilpué</h1>
+        <div id="warning-circle">0</div>
+        
+        <div class="tabs">
+            <button class="tab active" onclick="openTab('organigrama')">Organigrama</button>
+            <button class="tab" onclick="openTab('tareas')">Tareas Pendientes</button>
+            <button class="tab" onclick="openTab('fechas')">Fechas Importantes</button>
+        </div>
+        
+        <div id="organigrama" class="tab-content active">
+            <h2>Organigrama</h2>
+            <div id="organigrama-container"></div>
+        </div>
+
+        <div id="tareas" class="tab-content">
+            <h2>Tareas Pendientes</h2>
+            <h3>Mejora de Infraestructura</h3>
+            <ul class="task-list">
+                <li>
+                    <div class="task-content">Cotización de gomas escalas para torres (7-8-9 prioritario).</div>
+                    <div class="task-dates">
+                        <span class="task-created">Ingresada: 2023-05-01</span>
+                        <span class="task-due">Fecha límite: 2023-05-15</span>
+                        <span class="task-delay">Retraso: <span class="delay-days">0</span> días</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="task-content">Puerta bodega no ha sido cambiada a la fecha.</div>
+                    <div class="task-dates">
+                        <span class="task-created">Ingresada: 2023-04-20</span>
+                        <span class="task-due">Fecha límite: 2023-05-10</span>
+                        <span class="task-delay">Retraso: <span class="delay-days">0</span> días</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="task-content">Sistema de Riego: cotizaciones y automatización en 4 sectores.</div>
+                    <div class="task-dates">
+                        <span class="task-created">Ingresada: 2023-04-25</span>
+                        <span class="task-due">Fecha límite: 2023-05-20</span>
+                        <span class="task-delay">Retraso: <span class="delay-days">0</span> días</span>
+                    </div>
+                </li>
+            </ul>
+            
+            <h3>Seguridad y Emergencia</h3>
+            <ul class="task-list">
+                <li>
+                    <div class="task-content">Extintores, Fireball, y equipo de emergencia para torres.</div>
+                    <div class="task-dates">
+                        <span class="task-created">Ingresada: 2023-04-15</span>
+                        <span class="task-due">Fecha límite: 2023-05-01</span>
+                        <span class="task-delay">Retraso: <span class="delay-days">0</span> días</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="task-content">Sistema de cámaras de seguridad, incluyendo vinculación a la red de internet (móviles).</div>
+                    <div class="task-dates">
+                        <span class="task-created">Ingresada: 2023-04-18</span>
+                        <span class="task-due">Fecha límite: 2023-05-12</span>
+                        <span class="task-delay">Retraso: <span class="delay-days">0</span> días</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="task-content">Cotización de seguro contra terremoto complementario a incendios.</div>
+                    <div class="task-dates">
+                        <span class="task-created">Ingresada: 2023-04-22</span>
+                        <span class="task-due">Fecha límite: 2023-05-10</span>
+                        <span class="task-delay">Retraso: <span class="delay-days">0</span> días</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="task-content">Retomar caso Efesys (cámaras) y seguir el proceso legal si es necesario.</div>
+                    <div class="task-dates">
+                        <span class="task-created">Ingresada: 2023-05-05</span>
+                        <span class="task-due">Fecha límite: 2023-05-25</span>
+                        <span class="task-delay">Retraso: <span class="delay-days">0</span> días</span>
+                    </div>
+                </li>
+            </ul>
+            
+            <h3>Gestión y Supervisión</h3>
+            <ul class="task-list">
+                <li>
+                    <div class="task-content">Publicación de turnos de personal y visitas BP (administración y supervisor).</div>
+                    <div class="task-dates">
+                        <span class="task-created">Ingresada: 2023-05-02</span>
+                        <span class="task-due">Fecha límite: 2023-05-15</span>
+                        <span class="task-delay">Retraso: <span class="delay-days">0</span> días</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="task-content">Reloj control con cotizaciones e instalación para el control de ingreso y salida del personal.</div>
+                    <div class="task-dates">
+                        <span class="task-created">Ingresada: 2023-05-05</span>
+                        <span class="task-due">Fecha límite: 2023-05-20</span>
+                        <span class="task-delay">Retraso: <span class="delay-days">0</span> días</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="task-content">Revisión de trabajos pendientes de Galilea y webtickets ingresados.</div>
+                    <div class="task-dates">
+                        <span class="task-created">Ingresada: 2023-04-28</span>
+                        <span class="task-due">Fecha límite: 2023-05-12</span>
+                        <span class="task-delay">Retraso: <span class="delay-days">0</span> días</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="task-content">Revisión de todas las torres por parte de Mayordomo y Supervisor.</div>
+                    <div class="task-dates">
+                        <span class="task-created">Ingresada: 2023-05-02</span>
+                        <span class="task-due">Fecha límite: 2023-05-18</span>
+                        <span class="task-delay">Retraso: <span class="delay-days">0</span> días</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div id="fechas" class="tab-content">
+            <h2>Fechas Importantes</h2>
+            <div class="date-grid">
+                <div class="date-item" data-date="02">
+                    <h3>02 de cada mes</h3>
+                    <p>Propuesta de GGCC</p>
+                </div>
+                <div class="date-item" data-date="03">
+                    <h3>03 de cada mes</h3>
+                    <p>Carga de GG.CC. y consumos básicos</p>
+                </div>
+                <div class="date-item" data-date="05">
+                    <h3>05 de cada mes</h3>
+                    <p>Publicación de roles</p>
+                </div>
+                <div class="date-item" data-date="15">
+                    <h3>15 de cada mes</h3>
+                    <p>Reporte de corte de suministros</p>
+                </div>
+                <div class="date-item" data-date="20">
+                    <h3>20 de cada mes</h3>
+                    <p>Proyección de GGCC</p>
+                </div>
+                <div class="date-item" data-date="25">
+                    <h3>25 de cada mes</h3>
+                    <p>Propuestas de planilla de sueldos</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js"></script>
+    <script>
+        const nodes = new vis.DataSet([
+            { id: 1, label: 'Comité de\nAdministración', level: 0, group: 'comite' },
+            { id: 2, label: 'Presidente\nGuillermo Rivas', level: 1, group: 'comite' },
+            { id: 3, label: 'Tesorero\nCarlos Miranda', level: 1, group: 'comite' },
+            { id: 4, label: 'Secretario\nSami Donoso', level: 1, group: 'comite' },
+            { id: 5, label: 'Administración\nBuenaPropiedad', level: 2, group: 'admin' },
+            { id: 6, label: 'Administrador 1\nDiego Acevedo', level: 3, group: 'admin' },
+            { id: 7, label: 'Administrador 2\nNelson Villalobos', level: 3, group: 'admin' },
+            { id: 8, label: 'Mayordomo\nRodrigo Vásquez', level: 4, group: 'personal' },
+            { id: 9, label: 'Conserjes', level: 5, group: 'personal' },
+            { id: 10, label: 'Personal de Aseo', level: 5, group: 'personal' },
+            { id: 11, label: 'Proveedores', level: 5, group: 'proveedores' }
+        ]);
+
+        const edges = new vis.DataSet([
+            { from: 1, to: 2 },
+            { from: 1, to: 3 },
+            { from: 1, to: 4 },
+            { from: 1, to: 5 },
+            { from: 5, to: 6 },
+            { from: 5, to: 7 },
+            { from: 5, to: 8 },
+            { from: 8, to: 9 },
+            { from: 8, to: 10 },
+            { from: 5, to: 11 }
+        ]);
+
+        function openTab(tabName) {
+            const tabContents = document.getElementsByClassName('tab-content');
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove('active');
+            }
+            const tabs = document.getElementsByClassName('tab');
+            for (let i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove('active');
+            }
+            document.getElementById(tabName).classList.add('active');
+            document.querySelector(`[onclick="openTab('${tabName}')"]`).classList.add('active');
+
+            if (tabName === 'organigrama') {
+                initializeOrganigrama();
+            }
+        }
+
+        function initializeOrganigrama() {
+            const container = document.getElementById('organigrama-container');
+            const data = { nodes, edges };
+            const options = {
+                layout: {
+                    hierarchical: {
+                        direction: 'UD',
+                        sortMethod: 'directed',
+                        levelSeparation: 150,
+                        nodeSpacing: 200,
+                    }
+                },
+                nodes: {
+                    shape: 'box',
+                    margin: 10,
+                    widthConstraint: {
+                        maximum: 200
+                    },
+                    font: {
+                        size: 16,
+                        face: 'Segoe UI'
+                    },
+                    borderWidth: 2,
+                    shadow: true
+                },
+                edges: {
+                    smooth: {
+                        type: 'cubicBezier',
+                        forceDirection: 'vertical',
+                        roundness: 0.4
+                    },
+                    color: {
+                        color: '#1a365d',
+                        highlight: '#2c5282',
+                        hover: '#2c5282'
+                    },
+                    width: 2
+                },
+                groups: {
+                    comite: {
+                        color: {
+                            background: '#a0aec0',
+                            border: '#4a5568'
+                        }
+                    },
+                    admin: {
+                        color: {
+                            background: '#e2e8f0',
+                            border: '#4a5568'
+                        }
+                    },
+                    personal: {
+                        color: {
+                            background: '#edf2f7',
+                            border: '#4a5568'
+                        }
+                    },
+                    proveedores: {
+                        color: {
+                            background: '#f7fafc',
+                            border: '#4a5568'
+                        }
+                    }
+                },
+                physics: false,
+                interaction: {
+                    hover: true,
+                    tooltipDelay: 200
+                }
+            };
+            const network = new vis.Network(container, data, options);
+
+            network.on('click', function(params) {
+                if (params.nodes.length > 0) {
+                    const nodeId = params.nodes[0];
+                    const node = nodes.get(nodeId);
+                    let message = '';
+                    switch (node.label) {
+                        case 'Presidente\nGuillermo Rivas':
+                            message = 'Funciones: Liderar el comité, tomar decisiones estratégicas, representar al condominio.';
+                            break;
+                        case 'Tesorero\nCarlos Miranda':
+                            message = 'Funciones: Gestionar finanzas, presupuestos y pagos del condominio.';
+                            break;
+                        case 'Secretario\nSami Donoso':
+                            message = 'Funciones: Mantener registros, organizar reuniones, comunicar decisiones.';
+                            break;
+                        case 'Administrador 1\nDiego Acevedo':
+                        case 'Administrador 2\nNelson Villalobos':
+                            message = 'Funciones: Supervisar operaciones diarias, coordinar mantenimiento, atender inquilinos.';
+                            break;
+                        case 'Mayordomo\nRodrigo Vásquez':
+                            message = 'Funciones: Supervisar personal, coordinar tareas de mantenimiento, reportar problemas.';
+                            break;
+                        default:
+                            message = 'Haga clic en un cargo individual para ver sus funciones.';
+                    }
+                    alert(message);
+                }
+            });
+        }
+
+        function updateTaskDelays() {
+            const today = new Date();
+            let delayedTasks = 0;
+
+            document.querySelectorAll('.task-list li').forEach(task => {
+                const dueDateStr = task.querySelector('.task-due').textContent.split(': ')[1];
+                const dueDate = new Date(dueDateStr);
+                const delay = Math.max(0, Math.floor((today - dueDate) / (1000 * 60 * 60 * 24)));
+
+                task.querySelector('.delay-days').textContent = delay;
+
+                if (delay > 0) {
+                    delayedTasks++;
+                    task.querySelector('.task-delay').style.color = '#e53e3e';
+                }
+            });
+
+            document.getElementById('warning-circle').textContent = delayedTasks;
+            document.getElementById('warning-circle').style.display = delayedTasks > 0 ? 'flex' : 'none';
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            updateTaskDelays();
+            initializeOrganigrama();
+            const dateItems = document.querySelectorAll('.date-item');
+            dateItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const date = this.getAttribute('data-date');
+                    let explanation = '';
+                    switch(date) {
+                        case '02':
+                            explanation = 'Presentación de la propuesta de Gastos Comunes para el mes siguiente.';
+                            break;
+                        case '03':
+                            explanation = 'Actualización de los Gastos Comunes y consumos básicos en el sistema.';
+                            break;
+                        case '05':
+                            explanation = 'Publicación de los roles de Conserjería, Aseo y Administración para el mes en curso.';
+                            break;
+                        case '15':
+                            explanation = 'Informe sobre los cortes de suministros a residentes morosos.';
+                            break;
+                        case '20':
+                            explanation = 'Elaboración de la proyección de Gastos Comunes para el mes siguiente.';
+                            break;
+                        case '25':
+                            explanation = 'Presentación de propuestas para la planilla de sueldos del personal.';
+                            break;
+                    }
+                    alert(`${this.querySelector('h3').textContent}\n\n${explanation}`);
+                });
+            });
+        });
+    </script>
+</body></html>
